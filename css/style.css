@@ -1,0 +1,265 @@
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+#main{
+    height: 100%;
+    background-color: rgb(197, 197, 197);
+    font-family: 'Share Tech Mono', monospace;
+
+    display: grid;
+    grid-template-columns: 26% 1fr;
+    grid-template-rows: 1fr 775px 40px;
+    grid-template-areas: 
+    'header header'
+    'list-user data-user'
+    'footer footer';
+}
+
+header{
+    grid-area: header;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    letter-spacing: 5px;
+    padding-top: 15px ;
+    font-family: 'Share Tech Mono', monospace;
+    z-index: 1;
+}
+
+/* LISTA DE USUÁRIOS */
+
+.list-user{
+    grid-area: list-user;
+    background-color: rgba(0, 0, 0, 0.877);
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.list-user > span {
+    color: white;
+    font-size: 1.6rem;
+    border-bottom: 2px solid white;
+    position: relative;
+    left: 25%;
+    top: 2px;
+    letter-spacing: 5px;
+}
+
+.list-user ol{
+    list-style: none;
+    padding-inline-start: 0px;
+}
+
+.user-item{
+    background-color: white;
+    border:solid 2px black;
+    border-radius: 2px;
+
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    grid-row: 50% 50%;
+
+    width: 300px;
+    height: 150px;
+    margin: 10px 0px 0px 0px;
+
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.user-item:hover{
+    background-color: #1e3c72;
+    color: white;
+}
+
+.user{
+    padding: 3px 0px 0px 3px;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name{
+    font-size: 1.4rem;
+}
+
+.user-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+.status{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.status > span{
+    width: 2px;
+    height: 2px;
+    filter: brightness(100%);
+    background-color: rgb(50, 212, 0);
+    box-shadow: rgb(46, 190, 1) 0px 0px 5px 5px;
+    border-radius: 10px;
+    align-self: center;
+    margin-left: 20px;
+}
+
+.level{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 5px;
+    font-size: 0.9rem;
+}
+
+.user-image{
+    background-color: rgb(236, 234, 234);
+    border-radius: 50px;
+    border: solid 3px rgba(255, 255, 255, 0.247);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.user-image img{
+    width: 75px;
+    height: 75px;
+    padding-left: 10px;
+}
+
+/* FORMULARIO */
+
+.data-user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.data-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 20px 0px;
+    height: 100px;
+}
+
+.data-form{
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: repeat(6, 75px);
+    align-items: center;
+    justify-content: center;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.data-form input{
+    width: 85%;
+    height: 35px;
+    margin-left: 8px;
+    padding: 2px;
+
+    border: none;
+    outline: none;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    border-bottom: solid 2px grey;
+    font-size: 1.05rem;
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.data-form input::placeholder{
+    color: rgba(0, 0, 0, 0.534);
+    padding-left: 5px;
+}
+
+.readonly{
+    z-index: -1;
+}
+
+.data-group-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.data-group-button button{
+    height: 50px;
+    width: 155px;
+    margin-right: 20px;
+
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    border-radius: 10px;
+}
+
+#save{
+    background: linear-gradient(to bottom, #108c00 18%,#006b10 54%,#006b10 54%,#108c00 99%);
+}
+
+#save:hover{
+    background: linear-gradient(to bottom, #006e2e 0%,#005419 47%,#006e2e 100%);
+    color: rgb(255, 255, 255);
+}
+
+#reset{
+    background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%);
+}
+
+#reset:hover{
+    background: linear-gradient(to bottom, #a00000 0%,#6d0000 100%);
+    color: rgb(255, 255, 255);
+}
+
+/* FOOTER */
+
+footer{
+    grid-area: footer;
+    background: linear-gradient(to right, #1e3c72, #2a5298);
+    color: white;
+
+    padding-top: 7px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+footer p{
+    letter-spacing: 2px;
+    font-family: 'Merriweather', serif;
+
+    padding-right: 10px;
+    border-right: solid white 1px;
+    margin-right: 10px;
+}
+
+footer img{
+    width: 75px;
+    height: 25px;
+}
+
+/* Via JQuery */
+
+.actived{
+    border: solid 5px rgb(0, 153, 38, 0.7);
+    box-shadow: inset rgba(0, 0, 65, 0.7) 0px 0px 25px;
+    box-shadow: rgba(0, 153, 38, 0.7) 0px 0px 8px 3px;
+    font-weight: bolder;
+}
