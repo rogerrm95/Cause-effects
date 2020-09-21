@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,24 +9,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
+    
     <title>Causas e Efeitos</title>
 </head>
 
-<body>
-    <div id='main'>
+<body id='main'>
+    <!--Header-->
+    <header>
+        <h1>Causas e Efeitos</h1>
+    </header>
 
-        <!--Header-->
-        <header>
-            <h1>Causas e Efeitos</h1>
-        </header>
+    <!--LISTA DE USUÁRIOS-->
+    <div class="list-user">
+        <span>Usuários</span>
+        <ol></ol>
+    </div>
+    
+    <!--DADOS DO USUÁRIO-->
+    <div class="data-user">
 
-        <!--LISTA DE USUÁRIOS-->
-        <div class="list-user">
-            <span>Usuários</span>
-            <ol></ol>
+        <div class="data-header">
+            <h1>INFORMAÇÕES:</h1>
         </div>
 
+<<<<<<< HEAD
         <!--DADOS DO USUÁRIO-->
         <div class="data-user">
 
@@ -38,19 +43,44 @@
             <!--Formulario-->
             <form class="data-form">
                 <input type="hidden" id="id" />
-                <input type="hidden" id="info-status" />
-                <input type="text" id="name" placeholder="Nome" />
-                <input type="text" id="lastname" placeholder="Sobrenome" />
-                <input type="date" id="dtBirthday" />
-                <input type="text" id="username" placeholder="User Name" />
-                <input type="email" id="email" placeholder="E-mail" />
-                <input type='tel' id='phone' placeholder="Telefone" />
-                <input type='text' id='country' placeholder="País" />
-                <input type='text' id='server' placeholder="Servidor" />
-                <label>Cor da Borda
-                    <input type='color' name="borderColor" id='border-color' />
+                <input type="hidden" id="status" />
+
+                <label for='name'> Nome:
+                    <input type="text" id="name" placeholder="Informe seu nome" required />
                 </label>
-                
+
+                <label for='lastname'>Sobrenome:
+                    <input type="text" id="lastname" placeholder="Informe seu sobrenome" required />
+                </label>
+
+                <label for="dtBirthday"> Data de nascimento
+                    <input type="date" id="dtBirthday" required />
+                </label>
+
+                <label for="username">Nome de usuário:
+                    <input type="text" id="username" placeholder="Nickname" required />
+                </label>
+
+                <label for="email">Email:
+                    <input type="email" id="email" placeholder="Informe seu e-mail" required />
+                </label>
+
+                <label for="phone"> Telefone / Celular:
+                    <input type='tel' id='phone' placeholder="( ) X XXXX-XXXX" required />
+                </label>
+
+                <label for="country"> Pais de Origem:
+                    <input type='text' id='country' placeholder="País" required />
+                </label>
+
+                <label for="server"> Servidor:
+                    <input type='text' id='server' placeholder="Servidor" required />
+                </label>
+
+                <label for="borderColor">Cor da Borda
+                    <input type='color' name="border-color" id='borderColor' required />
+                </label>
+
                 <!--Fake Select List-->
                 <div id='user-avatar'>
                     Selecionar Avatar <i class="fa fa-arrow-down"></i>
@@ -61,19 +91,20 @@
                         <img src="../assets/yoda.png" id="yoda" />
                     </div>
                 </div>
+
                 <div class='readonly'>Level:
                     <span id='info-level'>0</span>
                 </div>
                 <div class="readonly">Avatar Selecionado:
                     <span id='info-avatar'></span>
                 </div>
-            </form>
 
-            <!--Botões-->
-            <div class="data-group-button">
-                <button id='save' onclick="validation()">Salvar</button>
-                <button id="reset">Cancelar</button>
-            </div>
+                <!--Botões-->
+                <div class="data-group-button">
+                    <button id='save'>Salvar</button>
+                    <button type='button' id="reset">Cancelar</button>
+                </div>
+            </form>
         </div>
 
         <!--Footer-->
@@ -81,11 +112,55 @@
             <p>Product By Rogério Marques</p>
             <a href="https://github.com/rogerrm95" class="github"><img src="../assets/github.png"></a>
         </footer>
+    </div>
+=======
+        <!--Formulario-->
+        <form class="data-form">
+            <input type="hidden" id="id" />
+            <input type="hidden" id="info-status" />
+            <input type="text" id="name" placeholder="Nome" />
+            <input type="text" id="lastname" placeholder="Sobrenome" />
+            <input type="date" id="dtBirthday" />
+            <input type="text" id="username" placeholder="User Name" />
+            <input type="email" id="email" placeholder="E-mail" />
+            <input type='tel' id='phone' placeholder="Telefone" />
+            <input type='text' id='country' placeholder="País" />
+            <input type='text' id='server' placeholder="Servidor" />
+            <label>Cor da Borda
+                <input type='color' name="borderColor" id='borderColor'/>
+            </label>
+            <!--Fake Select List-->
+            <div id='user-avatar'>
+                Selecionar Avatar <i class="fa fa-arrow-down"></i>
+                <div id='catalogo'>
+                    <img src="../assets/gamer.png" id="gamer" />
+                    <img src="../assets/avatar.png" id="avatar" />
+                    <img src="../assets/avatar2.png" id="avatar2" />
+                    <img src="../assets/yoda.png" id="yoda" />
+                </div>
+            </div>
+            <div class='readonly'>Level:
+                <span id='info-level'>0</span>
+            </div>
+            <div class="readonly">Avatar Selecionado:
+                <span id='info-avatar'></span>
+            </div>
+        </form>
 
-
+        <!--Botões-->
+        <div class="data-group-button">
+            <button id='save' onclick="validation()">Salvar</button>
+            <button id="reset">Cancelar</button>
+        </div>
     </div>
 
+    <!--Footer-->
+    <footer>
+        <p>Product By Rogério Marques</p>
+        <a href="https://github.com/rogerrm95" class="github"><img src="../assets/github.png"></a>
+    </footer>
+
+>>>>>>> parent of 95ddc46... Mudança no layout da lista de usuários
     <script type="text/javascript" src="../js/main.js"></script>
 </body>
-
 </html>

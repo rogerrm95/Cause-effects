@@ -1,17 +1,17 @@
 *{
     margin: 0px;
     box-sizing: border-box;
+    height: 100%;
 }
 
 #main{
-    height: 100vh;
-    max-height: 100vh;
+    height: 100%;
     background-color: rgb(197, 197, 197);
     font-family: 'Share Tech Mono', monospace;
 
     display: grid;
-    grid-template-columns: 30% 1fr;
-    grid-template-rows: 75px 1fr 40px;
+    grid-template-columns: 26% 1fr;
+    grid-template-rows: 1fr 775px 40px;
     grid-template-areas: 
     'header header'
     'list-user data-user'
@@ -28,29 +28,26 @@ header{
     letter-spacing: 5px;
     padding-top: 15px ;
     font-family: 'Share Tech Mono', monospace;
+    z-index: 1;
 }
 
 /* LISTA DE USUÁRIOS */
 
 .list-user{
     grid-area: list-user;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #526a95;
+    background-color: rgba(0, 0, 0, 0.877);
     overflow: scroll;
     overflow-x: hidden;
 }
 
 .list-user > span {
-    color: #b6c8e7;
+    color: white;
     font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: 3px;
-    margin: 15px 0px;
+    border-bottom: 2px solid white;
+    position: relative;
+    left: 25%;
+    top: 2px;
+    letter-spacing: 5px;
 }
 
 .list-user ol{
@@ -59,57 +56,54 @@ header{
 }
 
 .user-item{
+    background-color: white;
+    border:solid 2px black;
+    border-radius: 2px;
+
+    display: grid;
+    grid-template-columns: 1fr 30%;
+    grid-row: 50% 50%;
+
     width: 300px;
     height: 150px;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    padding: 5px;
+    margin: 10px 0px 0px 0px;
 
-    background-color: white;
-    border: solid 2px black;
-    border-radius: 10px;
     font-family: 'Share Tech Mono', monospace;
 }
 
-.user-item:last-child{
-    margin-bottom: 15px;
-}
-
 .user-item:hover{
-    background-color: #d7d7d7;
-    cursor: pointer;
+    background-color: #1e3c72;
+    color: white;
 }
 
-.user-item .user{
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    align-items: center;
-    grid-template-areas:
-    'username username'
-    'name name'
-    'status level';
+.user{
+    padding: 3px 0px 0px 3px;
+    display: flex;
+    flex-direction: column;
 }
 
-.user-item .user-name{
-    grid-area: username;
+.user-name{
     font-size: 1.4rem;
 }
 
-.user-item .name{
-    grid-area: name
+.user-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.user-item .status{
-    grid-area: status;
+.info{
+    display: flex;
+    flex-direction: column;
+}
+
+.status{
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.user-item .status > span{
+.status > span{
     width: 2px;
     height: 2px;
     filter: brightness(100%);
@@ -120,87 +114,114 @@ header{
     margin-left: 20px;
 }
 
-.user-item .level{
-    grid-area: level;
+.level{
     display: flex;
     flex-direction: column;
-    justify-self: end;
+    justify-content: flex-end;
+    padding-bottom: 5px;
     font-size: 0.9rem;
 }
 
-.user-item .user-image{
+.user-image{
     background-color: rgb(236, 234, 234);
     border-radius: 50px;
     border: solid 3px rgba(255, 255, 255, 0.247);
-    width:  100px;
+    width: 100%;
+    height: 100%;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0px 5px;
 }
 
-.user-item .user-image img{
+.user-image img{
     width: 75px;
     height: 75px;
+    padding-left: 10px;
 }
 
 /* FORMULARIO */
-.data-user{
+
+<<<<<<< HEAD
+.data-user {
     display: grid;
-    grid-template-rows: 150px 1fr 300px;
+    grid-template-rows: 75px 1fr;
     align-items: center;
+=======
+.data-user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+>>>>>>> parent of 95ddc46... Mudança no layout da lista de usuários
 }
 
 .data-header{
     display: flex;
-    flex-direction: row;
     justify-content: center;
     margin: 20px 0px;
+    height: 100px;
+}
+
+.data-header h1{
+    color: #395382
 }
 
 .data-form{
     display: grid;
-    grid-template-columns: 45% 45%;
-    grid-template-rows: repeat(6, 75px);
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(7, 90px);
     align-items: center;
-    justify-content: center;
+    justify-items: center;
     font-family: 'Share Tech Mono', monospace;
 }
 
-.data-form input{
-    width: 85%;
-    height: 35px;
-    margin-left: 8px;
-    padding: 2px;
+.data-form label{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
 
+.data-form input{
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    margin-top: 10px;
     border: none;
     outline: none;
+    
     background-color: rgb(255, 255, 255);
-    color: rgb(0, 0, 0);
-    border-radius: 10px;
-    border-bottom: solid 2px grey;
-    font-size: 1.05rem;
+    color: #92a8cf;
+    border-radius: 6px;
+    font-size: 18px;
     font-family: 'Share Tech Mono', monospace;
 }
 
 .data-form input::placeholder{
-    color: rgba(0, 0, 0, 0.534);
+    color: #92a8cf;
     padding-left: 5px;
 }
 
+<<<<<<< HEAD
 .data-form #border-color:hover{
     cursor: pointer;
 }
 
 .data-form .readonly{
+    font-size: 20px;
+=======
+.readonly{
     z-index: -1;
+>>>>>>> parent of 95ddc46... Mudança no layout da lista de usuários
 }
 
 .data-group-button{
+    grid-column-start: 1;
+    grid-column-end: 3;
+
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .data-group-button button{
@@ -214,26 +235,35 @@ header{
     color: white;
     outline: none;
     border-radius: 10px;
+    border: none;
 }
 
 #save{
-    background: linear-gradient(to bottom, #108c00 18%,#006b10 54%,#006b10 54%,#108c00 99%);
+    background-color: #007e26;
 }
 
 #save:hover{
+<<<<<<< HEAD
+    background-color: #005419;
+    cursor: pointer;
+=======
     background: linear-gradient(to bottom, #006e2e 0%,#005419 47%,#006e2e 100%);
     color: rgb(255, 255, 255);
-    cursor: pointer;
+>>>>>>> parent of 95ddc46... Mudança no layout da lista de usuários
 }
 
 #reset{
-    background: linear-gradient(to bottom, #ff3019 0%,#cf0404 100%);
+    background-color: rgb(197, 0, 0);
 }
 
 #reset:hover{
+<<<<<<< HEAD
+    background-color: rgb(97, 0, 0);
+    cursor: pointer;
+=======
     background: linear-gradient(to bottom, #a00000 0%,#6d0000 100%);
     color: rgb(255, 255, 255);
-    cursor: pointer;
+>>>>>>> parent of 95ddc46... Mudança no layout da lista de usuários
 }
 
 /* FOOTER */
@@ -243,10 +273,10 @@ footer{
     background: linear-gradient(to right, #1e3c72, #2a5298);
     color: white;
 
-    padding-top: 7px;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
 
 footer p{
@@ -259,14 +289,15 @@ footer p{
 }
 
 footer img{
-    width: 75px;
-    height: 25px;
+    width: 70px;
+    height: auto;
 }
 
-/* Via JQuery */
+/* Adicionado via JQuery */
 
 .actived{
-    border: solid 5px #20419b;
-    box-shadow: #0734dd 0px 0px 8px 3px;
+    border: solid 5px rgb(0, 153, 38, 0.7);
+    box-shadow: inset rgba(0, 0, 65, 0.7) 0px 0px 25px;
+    box-shadow: rgba(0, 153, 38, 0.7) 0px 0px 8px 3px;
     font-weight: bolder;
 }

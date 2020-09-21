@@ -20,7 +20,7 @@ function populateList(json) {
     qtdPlayers = players.length
 
     for (let i = 0; i < qtdPlayers; i++) {
-        
+
         // Criando os elementos e atribuindo classes e valores à eles
         const userItem = document.createElement('li')
         userItem.classList.add("user-item")
@@ -41,13 +41,18 @@ function populateList(json) {
         userName.classList.add("user-name")
         userName.innerHTML = players[i].username
 
+        const userInfo = document.createElement('div')
+        userInfo.classList.add("user-info")
+
+        const info = document.createElement('div')
+        info.classList.add("info")
+
         const level = document.createElement('div')
         level.classList.add("level")
         level.innerHTML = `${players[i].level}.lvl`
 
-        const name = document.createElement('span')
-        name.classList.add('name')
-        name.innerHTML = `${players[i].name} ${players[i].lastname}`
+        const span = document.createElement('span')
+        span.innerHTML = `${players[i].name} ${players[i].lastname}`
 
         const status = document.createElement('span')
         if (players[i].status === 'offline') {
@@ -64,13 +69,16 @@ function populateList(json) {
         image.setAttribute('src', `../assets/${players[i].avatar}.png`)
 
         //Adicionando as tags criada ao elemento Pai delas              
+        info.appendChild(span)
+        info.appendChild(status)
+
+        userInfo.appendChild(info)
+        userInfo.appendChild(level)
+
         userImage.appendChild(image)
-        
+
         user.appendChild(userName)
-        user.appendChild(name)
-        user.appendChild(level)
-        user.appendChild(status)
-        user.appendChild(status)
+        user.appendChild(userInfo)
 
         userItem.appendChild(userID)
         userItem.appendChild(user)
@@ -112,28 +120,44 @@ function getUser(id) {
 function loadData(user) {
 
     try {
-        for (value in user) {
-            // Só vai carregar os dados em que os campos que forem editáveis
-            document.getElementById(value).value = user[value] ? user[value] : ''
+        for (data in user) {
+
+            // Carregará os dados nos inputs //
+            if (document.getElementById(data) !== null) {
+                document.getElementById(data).value = user[data] ? user[data] : ''
+            }
         }
-        document.getElementById('info-status').value = user.status ? user.status : 'offline'
+
+        document.getElementById('status').value = user.status ? user.status : 'offline'
         document.getElementById('info-level').innerHTML = user.level
         document.getElementById('info-avatar').innerHTML = user.avatar
+
     } catch (e) {
-        console.log('Carregando dados...')
+        console.log(e)
     }
 }
 
 // Salvar os dados do Player passado como parâmetro após passar pela etapa de validação //
 // Verificará se o usuário é novo ou ja existente no BD e diante disso definirá o método HTTP //
-function save(player) {
+function save() {
+
+    const player = {
+        id: $("#id").val(),
+        name: $('#name').val(),
+        lastname: $('#lastname').val(),
+        dtBirthday: $('#dtBirthday').val(),
+        username: $('#username').val(),
+        email: $('#email').val(),
+        phone: $('#phone').val(),
+        country: $('#country').val(),
+        server: $('#server').val(),
+        borderColor: $('#borderColor').val(),
+        avatar: $("#info-avatar").html()
+    }
 
     let method;
-    let urlById;
 
-    player.id = document.getElementById("id").value
-
-    //Verifica se usuário existe e defini o tipo de método de requisição HTTP //
+    //Verifica se usuário existe e defini o de método de requisição HTTP //
     if (player.id === '') {
         method = "POST"
         url = baseURL
@@ -142,7 +166,6 @@ function save(player) {
         //Atribuindo valores padrão aos elementos read-only e avatar //
         player.status = "online"
         player.level = 0
-        player.avatar = "avatar"
     }
     else {
         player.avatar = document.getElementById('info-avatar').innerHTML
@@ -156,7 +179,8 @@ function save(player) {
     request.setRequestHeader("Content-Type", "application/json");
     request.responseType = 'json'
     request.send(JSON.stringify(player))
-    clear()
+
+    window.location.reload()
 }
 
 // Validação - Responsável por verificar existência ou não de campos vazios //
@@ -170,7 +194,7 @@ function validation() {
         phone: $('#phone').val(),
         country: $('#country').val(),
         server: $('#server').val(),
-        borderColor: $('#border-color').val(),
+        borderColor: $('#borderColor').val(),
         avatar: $("#info-avatar").html()
     }
 
@@ -204,20 +228,28 @@ function clear() {
     $("#phone").val("")
     $("#country").val("")
     $("#server").val("")
-    $("#border-color").val("#222222")
+<<<<<<< HEAD
+    $("#borderColor").val("#000000")
+=======
+    $("#borderColor").val("#222222")
+>>>>>>> parent of 95ddc46... Mudança no layout da lista de usuários
     $("#info-avatar").html("avatar")
     $("#info-status").val("")
     $("#info-level").html("0")
 }
 
 // Jquery //
-
-$("#user-avatar").click(function () {
+$("#user-avatar").on('click', (function () {
     $("#catalogo").toggle(500);
-})
+}))
 
-$("img").click(function () {
+$("img").on('click', (function () {
     $("#info-avatar").html(this.id)
-})
+}))
 
-$("#reset").click(function () { clear() })
+$("#reset").on('click', (function () { clear() }))
+
+$("#save").on('click', function (e) {
+    e.preventDefault()
+    validation()
+})

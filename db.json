@@ -12,22 +12,22 @@
       "borderColor": "#008040",
       "id": 1,
       "status": "online",
-      "level": 0,
-      "avatar": "avatar2"
+      "level": 100,
+      "avatar": "yoda"
     },
     {
       "name": "Roberto",
-      "lastname": "Justos",
+      "lastname": "Justos Souza",
       "dtBirthday": "2000-11-30",
       "username": "-RJ-Justos",
       "email": "roberto@live.com",
       "phone": "9543563434",
       "country": "Brazil",
       "server": "Brazil",
-      "borderColor": "#008040",
+      "borderColor": "#e05a00",
       "id": 2,
       "status": "online",
-      "level": 0,
+      "level": 23,
       "avatar": "avatar"
     },
     {
@@ -42,7 +42,7 @@
       "borderColor": "#80ffff",
       "id": 3,
       "status": "online",
-      "level": 0,
+      "level": 543,
       "avatar": "avatar"
     },
     {
@@ -57,7 +57,7 @@
       "borderColor": "#ff0000",
       "id": 4,
       "status": "online",
-      "level": 0,
+      "level": 1,
       "avatar": "avatar2"
     },
     {
@@ -69,11 +69,11 @@
       "phone": "44444444444",
       "country": "Canadá",
       "server": "Brazil",
-      "borderColor": "#400000",
+      "borderColor": "#d70909",
       "id": 5,
       "status": "offline",
-      "level": 0,
-      "avatar": "avatar"
+      "level": 245,
+      "avatar": "gamer"
     },
     {
       "name": "NOME",

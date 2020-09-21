@@ -1,51 +1,55 @@
 #user-avatar {
-    width: 85%;
-    height: 35px;
-    padding: 4px;
+    width: 90%;
+    padding: 8px;
+    margin-top: 20px;
     text-align: center;
     font-size: 1.5rem;
+<<<<<<< HEAD
+    color: rgb(255, 255, 255);
+    background: #1e3c72;
+    border-radius: 8px;
+    box-shadow: 1px 1px 2px 1px #000000cf;
+    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+=======
 
     color: rgb(255, 255, 255);           
-    background: #1e3c72;
+    background: linear-gradient(to right, #232526, #414345);
     border-bottom: 2px black solid;
     border-radius: 10px;
+>>>>>>> parent of 95ddc46... Mudança no layout da lista de usuários
 }
-
-#user-avatar:hover{
-    opacity: 0.9;
-    cursor: pointer;
-}
-
 i {
     color: rgb(255, 255, 255);
-    font-size: 1.5rem;
+    font-size: 111rem;
 }
 
 #catalogo {
     display: none;
     position: absolute;
-    width: 300px;
-    height: auto;
-    margin: 5px 0px 5px 25px;
-
+    top: 70%;
+    width: 25%;
+    max-width: 300px;
     background-color: rgb(245, 245, 245);
     border: solid 2px rgb(122, 122, 122);
     border-radius: 5px;
 }
 
 #catalogo img {
-    border: solid 1px;
-    border-radius: 10px;
+    border: solid 1px #20419b;
+    border-radius: 8px;
     margin: 5px;
-    padding: 5px;
     height: 75px;
     width: 75px;
 
     background-color: white;
-    box-shadow: 0px 1px 0px 1px rgba(0, 0, 0, 0.596);
+    box-shadow: 0px 1px 4px 1px #000000ad;
 }
 
 #catalogo img:hover {
     background-color: rgba(148, 148, 148, 0.445);
-    border: 5px solid rgb(175, 175, 175);
+    border: 3px solid #005419;
+    box-shadow: 0px 1px 4px 4px rgb(1 92 8 / 83%);
 }
