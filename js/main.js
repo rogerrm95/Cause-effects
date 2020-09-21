@@ -41,18 +41,13 @@ function populateList(json) {
         userName.classList.add("user-name")
         userName.innerHTML = players[i].username
 
-        const userInfo = document.createElement('div')
-        userInfo.classList.add("user-info")
-
-        const info = document.createElement('div')
-        info.classList.add("info")
-
         const level = document.createElement('div')
         level.classList.add("level")
         level.innerHTML = `${players[i].level}.lvl`
 
-        const span = document.createElement('span')
-        span.innerHTML = `${players[i].name} ${players[i].lastname}`
+        const name = document.createElement('span')
+        name.classList.add('name')
+        name.innerHTML = `${players[i].name} ${players[i].lastname}`
 
         const status = document.createElement('span')
         if (players[i].status === 'offline') {
@@ -69,16 +64,13 @@ function populateList(json) {
         image.setAttribute('src', `../assets/${players[i].avatar}.png`)
 
         //Adicionando as tags criada ao elemento Pai delas              
-        info.appendChild(span)
-        info.appendChild(status)
-
-        userInfo.appendChild(info)
-        userInfo.appendChild(level)
-
         userImage.appendChild(image)
         
         user.appendChild(userName)
-        user.appendChild(userInfo)
+        user.appendChild(name)
+        user.appendChild(level)
+        user.appendChild(status)
+        user.appendChild(status)
 
         userItem.appendChild(userID)
         userItem.appendChild(user)
@@ -178,7 +170,7 @@ function validation() {
         phone: $('#phone').val(),
         country: $('#country').val(),
         server: $('#server').val(),
-        borderColor: $('#borderColor').val(),
+        borderColor: $('#border-color').val(),
         avatar: $("#info-avatar").html()
     }
 
@@ -212,7 +204,7 @@ function clear() {
     $("#phone").val("")
     $("#country").val("")
     $("#server").val("")
-    $("#borderColor").val("#222222")
+    $("#border-color").val("#222222")
     $("#info-avatar").html("avatar")
     $("#info-status").val("")
     $("#info-level").html("0")

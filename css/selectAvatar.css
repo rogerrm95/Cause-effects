@@ -6,10 +6,16 @@
     font-size: 1.5rem;
 
     color: rgb(255, 255, 255);           
-    background: linear-gradient(to right, #232526, #414345);
+    background: #1e3c72;
     border-bottom: 2px black solid;
     border-radius: 10px;
 }
+
+#user-avatar:hover{
+    opacity: 0.9;
+    cursor: pointer;
+}
+
 i {
     color: rgb(255, 255, 255);
     font-size: 1.5rem;

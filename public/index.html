@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,75 +10,82 @@
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link href="../node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    
+
     <title>Causas e Efeitos</title>
 </head>
 
-<body id='main'>
-    <!--Header-->
-    <header>
-        <h1>Causas e Efeitos</h1>
-    </header>
+<body>
+    <div id='main'>
 
-    <!--LISTA DE USUÁRIOS-->
-    <div class="list-user">
-        <span>Usuários</span>
-        <ol></ol>
-    </div>
-    
-    <!--DADOS DO USUÁRIO-->
-    <div class="data-user">
+        <!--Header-->
+        <header>
+            <h1>Causas e Efeitos</h1>
+        </header>
 
-        <div class="data-header">
-            <h1>INFORMAÇÕES:</h1>
+        <!--LISTA DE USUÁRIOS-->
+        <div class="list-user">
+            <span>Usuários</span>
+            <ol></ol>
         </div>
 
-        <!--Formulario-->
-        <form class="data-form">
-            <input type="hidden" id="id" />
-            <input type="hidden" id="info-status" />
-            <input type="text" id="name" placeholder="Nome" />
-            <input type="text" id="lastname" placeholder="Sobrenome" />
-            <input type="date" id="dtBirthday" />
-            <input type="text" id="username" placeholder="User Name" />
-            <input type="email" id="email" placeholder="E-mail" />
-            <input type='tel' id='phone' placeholder="Telefone" />
-            <input type='text' id='country' placeholder="País" />
-            <input type='text' id='server' placeholder="Servidor" />
-            <label>Cor da Borda
-                <input type='color' name="borderColor" id='borderColor'/>
-            </label>
-            <!--Fake Select List-->
-            <div id='user-avatar'>
-                Selecionar Avatar <i class="fa fa-arrow-down"></i>
-                <div id='catalogo'>
-                    <img src="../assets/gamer.png" id="gamer" />
-                    <img src="../assets/avatar.png" id="avatar" />
-                    <img src="../assets/avatar2.png" id="avatar2" />
-                    <img src="../assets/yoda.png" id="yoda" />
+        <!--DADOS DO USUÁRIO-->
+        <div class="data-user">
+
+            <div class="data-header">
+                <h1>INFORMAÇÕES:</h1>
+            </div>
+
+            <!--Formulario-->
+            <form class="data-form">
+                <input type="hidden" id="id" />
+                <input type="hidden" id="info-status" />
+                <input type="text" id="name" placeholder="Nome" />
+                <input type="text" id="lastname" placeholder="Sobrenome" />
+                <input type="date" id="dtBirthday" />
+                <input type="text" id="username" placeholder="User Name" />
+                <input type="email" id="email" placeholder="E-mail" />
+                <input type='tel' id='phone' placeholder="Telefone" />
+                <input type='text' id='country' placeholder="País" />
+                <input type='text' id='server' placeholder="Servidor" />
+                <label>Cor da Borda
+                    <input type='color' name="borderColor" id='border-color' />
+                </label>
+                
+                <!--Fake Select List-->
+                <div id='user-avatar'>
+                    Selecionar Avatar <i class="fa fa-arrow-down"></i>
+                    <div id='catalogo'>
+                        <img src="../assets/gamer.png" id="gamer" />
+                        <img src="../assets/avatar.png" id="avatar" />
+                        <img src="../assets/avatar2.png" id="avatar2" />
+                        <img src="../assets/yoda.png" id="yoda" />
+                    </div>
                 </div>
-            </div>
-            <div class='readonly'>Level:
-                <span id='info-level'>0</span>
-            </div>
-            <div class="readonly">Avatar Selecionado:
-                <span id='info-avatar'></span>
-            </div>
-        </form>
+                <div class='readonly'>Level:
+                    <span id='info-level'>0</span>
+                </div>
+                <div class="readonly">Avatar Selecionado:
+                    <span id='info-avatar'></span>
+                </div>
+            </form>
 
-        <!--Botões-->
-        <div class="data-group-button">
-            <button id='save' onclick="validation()">Salvar</button>
-            <button id="reset">Cancelar</button>
+            <!--Botões-->
+            <div class="data-group-button">
+                <button id='save' onclick="validation()">Salvar</button>
+                <button id="reset">Cancelar</button>
+            </div>
         </div>
-    </div>
 
-    <!--Footer-->
-    <footer>
-        <p>Product By Rogério Marques</p>
-        <a href="https://github.com/rogerrm95" class="github"><img src="../assets/github.png"></a>
-    </footer>
+        <!--Footer-->
+        <footer>
+            <p>Product By Rogério Marques</p>
+            <a href="https://github.com/rogerrm95" class="github"><img src="../assets/github.png"></a>
+        </footer>
+
+
+    </div>
 
     <script type="text/javascript" src="../js/main.js"></script>
 </body>
+
 </html>

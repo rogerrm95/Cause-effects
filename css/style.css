@@ -1,17 +1,17 @@
 *{
     margin: 0px;
     box-sizing: border-box;
-    height: 100%;
 }
 
 #main{
-    height: 100%;
+    height: 100vh;
+    max-height: 100vh;
     background-color: rgb(197, 197, 197);
     font-family: 'Share Tech Mono', monospace;
 
     display: grid;
-    grid-template-columns: 26% 1fr;
-    grid-template-rows: 1fr 775px 40px;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: 75px 1fr 40px;
     grid-template-areas: 
     'header header'
     'list-user data-user'
@@ -28,26 +28,29 @@ header{
     letter-spacing: 5px;
     padding-top: 15px ;
     font-family: 'Share Tech Mono', monospace;
-    z-index: 1;
 }
 
 /* LISTA DE USUÁRIOS */
 
 .list-user{
     grid-area: list-user;
-    background-color: rgba(0, 0, 0, 0.877);
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #526a95;
     overflow: scroll;
     overflow-x: hidden;
 }
 
 .list-user > span {
-    color: white;
+    color: #b6c8e7;
     font-size: 1.6rem;
-    border-bottom: 2px solid white;
-    position: relative;
-    left: 25%;
-    top: 2px;
-    letter-spacing: 5px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin: 15px 0px;
 }
 
 .list-user ol{
@@ -56,54 +59,57 @@ header{
 }
 
 .user-item{
-    background-color: white;
-    border:solid 2px black;
-    border-radius: 2px;
-
-    display: grid;
-    grid-template-columns: 1fr 30%;
-    grid-row: 50% 50%;
-
     width: 300px;
     height: 150px;
-    margin: 10px 0px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 5px;
 
+    background-color: white;
+    border: solid 2px black;
+    border-radius: 10px;
     font-family: 'Share Tech Mono', monospace;
 }
 
+.user-item:last-child{
+    margin-bottom: 15px;
+}
+
 .user-item:hover{
-    background-color: #1e3c72;
-    color: white;
+    background-color: #d7d7d7;
+    cursor: pointer;
 }
 
-.user{
-    padding: 3px 0px 0px 3px;
-    display: flex;
-    flex-direction: column;
+.user-item .user{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    grid-template-areas:
+    'username username'
+    'name name'
+    'status level';
 }
 
-.user-name{
+.user-item .user-name{
+    grid-area: username;
     font-size: 1.4rem;
 }
 
-.user-info{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.user-item .name{
+    grid-area: name
 }
 
-.info{
-    display: flex;
-    flex-direction: column;
-}
-
-.status{
+.user-item .status{
+    grid-area: status;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-.status > span{
+.user-item .status > span{
     width: 2px;
     height: 2px;
     filter: brightness(100%);
@@ -114,38 +120,35 @@ header{
     margin-left: 20px;
 }
 
-.level{
+.user-item .level{
+    grid-area: level;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding-bottom: 5px;
+    justify-self: end;
     font-size: 0.9rem;
 }
 
-.user-image{
+.user-item .user-image{
     background-color: rgb(236, 234, 234);
     border-radius: 50px;
     border: solid 3px rgba(255, 255, 255, 0.247);
-    width: 100%;
-    height: 100%;
-
+    width:  100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin: 0px 5px;
 }
 
-.user-image img{
+.user-item .user-image img{
     width: 75px;
     height: 75px;
-    padding-left: 10px;
 }
 
 /* FORMULARIO */
-
 .data-user{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    grid-template-rows: 150px 1fr 300px;
+    align-items: center;
 }
 
 .data-header{
@@ -153,7 +156,6 @@ header{
     flex-direction: row;
     justify-content: center;
     margin: 20px 0px;
-    height: 100px;
 }
 
 .data-form{
@@ -186,7 +188,11 @@ header{
     padding-left: 5px;
 }
 
-.readonly{
+.data-form #border-color:hover{
+    cursor: pointer;
+}
+
+.data-form .readonly{
     z-index: -1;
 }
 
@@ -217,6 +223,7 @@ header{
 #save:hover{
     background: linear-gradient(to bottom, #006e2e 0%,#005419 47%,#006e2e 100%);
     color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 #reset{
@@ -226,6 +233,7 @@ header{
 #reset:hover{
     background: linear-gradient(to bottom, #a00000 0%,#6d0000 100%);
     color: rgb(255, 255, 255);
+    cursor: pointer;
 }
 
 /* FOOTER */
@@ -258,8 +266,7 @@ footer img{
 /* Via JQuery */
 
 .actived{
-    border: solid 5px rgb(0, 153, 38, 0.7);
-    box-shadow: inset rgba(0, 0, 65, 0.7) 0px 0px 25px;
-    box-shadow: rgba(0, 153, 38, 0.7) 0px 0px 8px 3px;
+    border: solid 5px #20419b;
+    box-shadow: #0734dd 0px 0px 8px 3px;
     font-weight: bolder;
 }
